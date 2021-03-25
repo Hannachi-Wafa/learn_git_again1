@@ -1,0 +1,83 @@
+ALGORITHM algorithm_name
+VAR
+    set1, set2: array_name : ARRAY_OF INTEGER[];
+    sum:INTEGER:=0;
+    sum1:INTEGER:=0;
+    sum2,sum3,sum4,sum5:INTEGER:=0;
+    aux,aux1: INTEGER;
+    htab1 : HASH_TABLE<INTEGER,INTEGER>;
+    htab2 : HASH_TABLE<INTEGER,INTEGER>;
+
+BEGIN
+//problem 1 solution1
+    Read(set1)
+    Read(set2)
+    FOR i FROM 0 TO set1.length-1 STEP 1  DO
+    aux=set1[i]
+        FOR j FROM 0 TO set2.length-1 STEP 1  DO
+            IF (aux<>set2[j]) THEN
+            END_IF
+        END_FOR
+        sum1=sum1+aux;
+    
+    END_FOR
+    FOR i FROM 0 TO set2.length-1 STEP 1  DO
+    aux=set2[i]
+        FOR j FROM 0 TO set1.length-1 STEP 1  DO
+            IF (aux<>set2[j]) THEN
+            END_IF
+        END_FOR
+        sum2=sum2+aux1;
+    END_FOR
+    sum=sum1+sum2;
+    write("Sum of distinct elements:",sum);
+
+//problem1 solution2
+    htab1 : HASH_TABLE<INTEGER,INTEGER>;
+    htab2 : HASH_TABLE<INTEGER,INTEGER>;
+    htab1.insert(0,3);
+    htab1.insert(1,1);
+    htab1.insert(2,7);
+    htab1.insert(3,9);
+    Write(htab1);
+    htab2.insert(0,2);
+    htab2.insert(1,4);
+    htab2.insert(2,1);
+    htab2.insert(3,9);
+    htab2.insert(4,3);
+    Write(htab2);
+    WHILE (htab1.isEmpty()) DO
+    a=htab1.get(count)
+    WHILE (htab2.isEmpty()) DO
+    IF (htab2.get(j)<>a) THEN 
+        END_IF
+        total=total+a
+    END_WHILE
+    END_WHILE
+
+
+//problem 2 solution 1
+    Read(set1)
+    Read(set2)
+    FOR i FROM 0 TO set1.length-1 STEP 1  DO
+    aux2=set1[i]
+        FOR j FROM 0 TO set2.length-1 STEP 1  DO
+            IF (aux2==set2[j]) THEN
+            END_IF
+        END_FOR
+        sum3=sum3+aux2;
+    
+    END_FOR
+    FOR i FROM 0 TO set2.length-1 STEP 1  DO
+    aux3=set2[i]
+        FOR j FROM 0 TO set1.length-1 STEP 1  DO
+            IF (aux3==set2[j]) THEN
+            END_IF
+        END_FOR
+        sum4=sum4+aux3;
+    END_FOR
+    sum5=(sum3+sum4)*2;
+    write("Sum of overlapping elements:",sum5);
+
+
+END
