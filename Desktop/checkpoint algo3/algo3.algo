@@ -1,0 +1,44 @@
+PROCEDURE dot_product(var ps: INTEGER:=0 n:INTEGER;V,U : ARRAY_OF INTEGER)
+VAR
+    i:INTEGER;
+BEGIN
+    FOR i FROM 0 TO n-1 STEP 1  DO
+        ps:=ps+U[i]*V[i];
+    END_FOR
+    Write("scalar product of U and V",ps);
+    IF (ps=0) THEN
+        Write("orthogonal vectors ")
+        ELSE
+        Write("not orthogonal vectors ")
+    END_IF
+
+END
+FUNCTION  dot_product(var  n:INTEGER; V,U: ARRAY_OF INTEGER): INTEGER
+VAR
+    i:INTEGER;
+    ps:INTEGER:=0;
+BEGIN
+    FOR i FROM 0 TO n-1 STEP 1  DO
+        ps:=ps+U[i]*V[i];
+    END_FOR
+    RETURN ps ;
+END
+ALGORITHM vectors
+VAR
+    ps: INTEGER:=0;
+    n,i,j:INTEGER;
+    V,U : ARRAY_OF INTEGER;
+    BEGIN
+    Read(n)
+    FOR i FROM 0 TO n-1 STEP 1  DO
+    Read(U[i]);
+    Read(V[i]);
+    END_FOR
+    ps:=dot_product(ps, n)
+    IF (ps=0) THEN
+        Write("orthogonal vectors ")
+        ELSE
+        Write("not orthogonal vectors ")
+    END_IF
+
+END
